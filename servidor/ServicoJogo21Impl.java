@@ -4,7 +4,7 @@ import interfaces.EstadoJogo;
 import interfaces.ServicoJogo21;
 
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import java.rmi.server.UnicastRemoteObject;//comunicacao unicast
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -107,6 +107,23 @@ public class ServicoJogo21Impl extends UnicastRemoteObject implements ServicoJog
             return gerarEstadoCompleto(nomeJogador, partida, "VITORIA", "Sua pontuação foi maior. Você venceu.");
         } else {
             return gerarEstadoCompleto(nomeJogador, partida, "DERROTA", "O Dealer venceu.");
+        }
+    }
+    
+    @Override
+    public void desconectar(String nomeJogador) throws RemoteException {
+        // 1. Garante que qualquer partida pendente seja limpa
+        partidasAtivas.remove(nomeJogador);
+        
+        // 2. Checa o saldo do jogador
+        int saldo = saldosJogadores.getOrDefault(nomeJogador, 0);
+        
+        if (saldo <= 0) {
+            // Se faliu, remove do mapa global para liberar o nome com um novo saldo de R$ 500
+            saldosJogadores.remove(nomeJogador);
+            System.out.println("[SERVIDOR] Jogador " + nomeJogador + " faliu e foi removido do sistema.");
+        } else {
+            System.out.println("[SERVIDOR] Jogador " + nomeJogador + " saiu salvando R$ " + saldo);
         }
     }
 

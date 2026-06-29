@@ -9,4 +9,5 @@ public interface ServicoJogo21 extends Remote {
     EstadoJogo iniciarRodada(String nomeJogador, int valorAposta) throws RemoteException;
     EstadoJogo pedirCarta(String nomeJogador) throws RemoteException;
     EstadoJogo parar(String nomeJogador) throws RemoteException;
+    void desconectar(String nomeJogador) throws RemoteException;
 }
