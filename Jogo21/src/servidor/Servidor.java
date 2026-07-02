@@ -1,8 +1,9 @@
 package servidor;
 
-import interfaces.ServicoJogo21;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
+import interfaces.ServicoJogo21;
 
 public class Servidor {
     public static void main(String[] args) {

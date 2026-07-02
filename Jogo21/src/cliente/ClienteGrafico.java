@@ -1,9 +1,10 @@
 package cliente;
 
+import javax.swing.*;
+
 import interfaces.EstadoJogo;
 import interfaces.ServicoJogo21;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,8 +1,5 @@
 package servidor;
 
-import interfaces.EstadoJogo;
-import interfaces.ServicoJogo21;
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;//comunicacao unicast
 import java.util.ArrayList;
@@ -10,6 +7,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import interfaces.EstadoJogo;
+import interfaces.ServicoJogo21;
 
 public class ServicoJogo21Impl extends UnicastRemoteObject implements ServicoJogo21 {
 

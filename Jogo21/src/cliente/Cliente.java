@@ -1,11 +1,11 @@
 package cliente;
 
-import interfaces.EstadoJogo;
-import interfaces.ServicoJogo21;
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
+
+import interfaces.EstadoJogo;
+import interfaces.ServicoJogo21;
 
 public class Cliente {
     public static void main(String[] args) {
